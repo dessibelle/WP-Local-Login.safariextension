@@ -25,7 +25,7 @@ function handleMessage(msgEvent) {
 function validateContextMenu() {
     
     if (window.location.pathname) {
-        var matches = window.location.pathname.match(/.+\/wp-login\.php.*/i);
+        var matches = window.location.pathname.match(/.*\/wp-login\.php.*/i);
         
         if (matches)
             return matches.length > 0;
