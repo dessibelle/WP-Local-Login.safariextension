@@ -5,7 +5,7 @@
 	<key>Author</key>
 	<string>Simon Fransson</string>
 	<key>Builder Version</key>
-	<string>8536.26.14</string>
+	<string>8536.29.13</string>
 	<key>CFBundleDisplayName</key>
 	<string>WP Local Login</string>
 	<key>CFBundleIdentifier</key>
@@ -43,7 +43,7 @@
 		</dict>
 	</dict>
 	<key>Description</key>
-	<string>Redirects the WordPress login form to localhost, eliminiating the need to memorize login details.</string>
+	<string>Redirects the WordPress login form to localhost, enabling you to login to a local copies of sites.</string>
 	<key>ExtensionInfoDictionaryVersion</key>
 	<string>1.0</string>
 	<key>Permissions</key>
