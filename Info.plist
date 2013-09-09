@@ -28,6 +28,14 @@
 				<key>Title</key>
 				<string>Login to localhost…</string>
 			</dict>
+			<dict>
+				<key>Command</key>
+				<string>redirect_http</string>
+				<key>Identifier</key>
+				<string>cm_redirect_http</string>
+				<key>Title</key>
+				<string>Login to localhost (http)…</string>
+			</dict>
 		</array>
 		<key>Global Page</key>
 		<string>wp_local_login.html</string>

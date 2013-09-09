@@ -6,31 +6,36 @@
 
 
 function respondToCommand(event) {
-        
-    if(event.command === "redirect")
+
+    if(event.command === "redirect" || event.command === "redirect_http")
     {
         safari.application.activeBrowserWindow.activeTab.page.dispatchMessage(event.command, event);
     }
 }
 
 function respondToMessage(theMessageEvent) {
-    
+
     if (theMessageEvent.name === "validate") {
         contextMenuDisabled = theMessageEvent.message;
-        console.log('validation listener returned:', theMessageEvent.message);
     }
 }
 
 
 function onValidate(ev) {
-    
+
     ev.target.disabled = false;
-    
+
     switch (ev.command) {
         case 'redirect':
             if (!ev.userInfo || !ev.userInfo.showMenuItem) {
                 ev.target.disabled = true;
-            
+
+            }
+            break;
+        case 'redirect_http':
+            if (!ev.userInfo || !ev.userInfo.showMenuItem) {
+                ev.target.disabled = true;
+
             }
             break;
     };
@@ -40,7 +45,7 @@ safari.application.addEventListener("command", respondToCommand, false);
 safari.application.addEventListener("validate", onValidate, false);
 
 safari.application.activeBrowserWindow.activeTab.addEventListener("message", respondToMessage, false);
- 
+
 </script>
 </head>
 <body>
