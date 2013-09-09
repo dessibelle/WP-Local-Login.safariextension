@@ -46,6 +46,9 @@ function onContextMenu(ev) {
     var UserInfo = {};
     UserInfo.showMenuItem = validateContextMenu();
 
+    var form = document.getElementById('loginform');
+    UserInfo.url = form.getAttribute('action');
+
     safari.self.tab.setContextMenuEventUserInfo(ev, UserInfo);
 };
 

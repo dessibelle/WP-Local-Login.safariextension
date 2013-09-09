@@ -27,16 +27,13 @@ function onValidate(ev) {
 
     switch (ev.command) {
         case 'redirect':
-            if (!ev.userInfo || !ev.userInfo.showMenuItem) {
-                ev.target.disabled = true;
-
-            }
+            ev.target.disabled = (!ev.userInfo || !ev.userInfo.showMenuItem);
             break;
         case 'redirect_http':
-            if (!ev.userInfo || !ev.userInfo.showMenuItem) {
-                ev.target.disabled = true;
-
-            }
+            ev.target.disabled = (!ev.userInfo || !ev.userInfo.showMenuItem || !ev.userInfo.url.match(/^https:\/\/.*$/i));
+            // if (!ev.userInfo || !ev.userInfo.showMenuItem || ev.userInfo.url.match(/^https/i)) {
+            //     ev.target.disabled = true;
+            // }
             break;
     };
 }
@@ -45,6 +42,8 @@ safari.application.addEventListener("command", respondToCommand, false);
 safari.application.addEventListener("validate", onValidate, false);
 
 safari.application.activeBrowserWindow.activeTab.addEventListener("message", respondToMessage, false);
+safari.application.activeBrowserWindow.activeTab.addEventListener("message", respondToMessage, false);
+
 
 </script>
 </head>
