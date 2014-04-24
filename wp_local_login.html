@@ -7,9 +7,11 @@
 
 function respondToCommand(event) {
 
-    if(event.command === "redirect" || event.command === "redirect_http")
+    cmd = event.command;
+
+    if(cmd === "redirect" || cmd === "redirect_http")
     {
-        safari.application.activeBrowserWindow.activeTab.page.dispatchMessage(event.command, event);
+        safari.application.activeBrowserWindow.activeTab.page.dispatchMessage(cmd, null);
     }
 }
 
@@ -43,7 +45,6 @@ safari.application.addEventListener("validate", onValidate, false);
 
 safari.application.activeBrowserWindow.activeTab.addEventListener("message", respondToMessage, false);
 safari.application.activeBrowserWindow.activeTab.addEventListener("message", respondToMessage, false);
-
 
 </script>
 </head>
